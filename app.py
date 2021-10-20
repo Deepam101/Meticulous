@@ -33,6 +33,7 @@ def upload():
         chunkSize=800000,
         filename=file.filename) as fp:
             fp.write(encoded_string)
+        runanalyser(file.filename)
         return "Upload Succesful"
     return "Unable to upload file"
 
@@ -49,19 +50,21 @@ def file(filename):
 
 @app.route('/analysis/<filename>')
 def analysis(filename):
-    data_grid = fs.find_one(filter=dict(filename=filename))
-    with open(filename, "wb") as f:
-        f.write(base64.b64decode(data_grid.read()))
-    with open(filename,'rb') as file:
-        page_list = analyser(file)
-        percentages = percentage_text_to_image(file)
-        data_fetched = data()
     return render_template('analysis.html', pdf = filename, rating = 90 )
 
 @app.route('/analysis/getdata', methods=['GET'])
 def getsdata():
     getdata = data()
     return getdata
+
+def runanalyser(filename):
+    
+    data_grid = fs.find_one(filter=dict(filename=filename))
+    with open(filename, "wb") as f:
+        f.write(base64.b64decode(data_grid.read()))
+    with open(filename,'rb') as file:
+        page_list = analyser(file)
+        data_fetched = data()
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -23,16 +23,16 @@ $(function () {
 	/* Tooltip
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-	// $(document).ready(function () {
-	// 	$('[data-toggle="tooltip"]').tooltip();
-	// });
+	$(document).ready(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
 
 	// /* sticky
 	// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-	// $(document).ready(function () {
-	// 	$(".sticky-wrapper-header").sticky({ topSpacing: 0 });
-	// });
+	$(document).ready(function () {
+		$(".sticky-wrapper-header").sticky({ topSpacing: 0 });
+	});
 
 	/* Mouseover
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
@@ -445,11 +445,11 @@ function ekUpload(){
 		document.getElementById('file-image').src = URL.createObjectURL(file);
 	  }
 	  else {
-		// document.getElementById('file-image').classList.add("hidden");
-		// document.getElementById('notimage').classList.remove("hidden");
-		// document.getElementById('start').classList.remove("hidden");
-		// document.getElementById('response').classList.add("hidden");
-		// document.getElementById("file-upload-form").reset();
+		document.getElementById('file-image').classList.add("hidden");
+		document.getElementById('notimage').classList.remove("hidden");
+		document.getElementById('start').classList.remove("hidden");
+		document.getElementById('response').classList.add("hidden");
+		document.getElementById("file-upload-form").reset();
 	  }
 	}
   
@@ -488,8 +488,8 @@ function ekUpload(){
 			if (xhr.readyState == 4) {
 			  // Everything is good!
   
-			  // progress.className = (xhr.status == 200 ? "success" : "failure");
-			  // document.location.reload(true);
+			  progress.className = (xhr.status == 200 ? "success" : "failure");
+			  document.location.reload(true);
 			}
 		  };
   
