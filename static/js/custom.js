@@ -388,9 +388,9 @@ function ekUpload(){
 	  var xhr = new XMLHttpRequest();
 	  if (xhr.upload) {
 		// File Drop
-		fileDrag.addEventListener('dragover', fileDragHover, false);
-		fileDrag.addEventListener('dragleave', fileDragHover, false);
-		fileDrag.addEventListener('drop', fileSelectHandler, false);
+		// // fileDrag.addEventListener('dragover', fileDragHover, false);
+		// fileDrag.addEventListener('dragleave', fileDragHover, false);
+		// fileDrag.addEventListener('drop', fileSelectHandler, false);
 	  }
 	}
   

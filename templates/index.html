@@ -1,176 +1,185 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Meticulous</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
-      <!-- style css --> 
-      <link rel="stylesheet"  type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-      <!-- Responsive-->
-      <link rel="stylesheet"  type= "text/css"  href= "{{ url_for('static',filename='styles/responsive.css') }}">
-      <!-- fevicon -->
-      <link rel="icon" href="static/images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet"  type= "text/css" href= "{{ url_for('static',filename='styles/jquery.mCustomScrollbar.min.css') }}">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/static/styles/font-awesome.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <!--[if lt IE 9]>
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Meticulous</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+   <!-- Responsive-->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/responsive.css') }}">
+   <!-- fevicon -->
+   <link rel="icon" href="static/images/fevicon.png" type="image/gif" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" type="text/css"
+      href="{{ url_for('static',filename='styles/jquery.mCustomScrollbar.min.css') }}">
+   <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-   </head>
-   <!-- body -->
-   <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="static/images/loading.gif" alt="#" /></div>
-      </div>
-      <!-- end loader -->
-      <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="header">
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                     <div class="full">
-                        <div class="center-desk">
-                           <div class="logo">
-                              <a href="index.html"><img src="static/images/logo.png" alt="#" /></a>
-                           </div>
+</head>
+<style>
+   body  {
+  background-image: url("../static/images/banner.jpg");
+  background-color: #cccccc;
+   }
+</style>
+<!-- body -->
+
+<body class="main-layout">
+   <!-- loader  -->
+   <div class="loader_bg">
+      <div class="loader"><img src="static/images/loading.gif" alt="#" /></div>
+   </div>
+   <!-- end loader -->
+   <!-- header -->
+   <header>
+      <!-- header inner -->
+      <div class="header">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                  <div class="full">
+                     <div class="center-desk">
+                        <div class="logo">
+                           <a href="index.html"><img src="static/images/logo.png" alt="#" /></a>
                         </div>
                      </div>
                   </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+               </div>
+               <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                  <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+                        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                           <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                 <a class="nav-link" href="#we_do">We Do</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="#contact">Contact</a>
-                              </li>
-                           </ul>
-                           
-                        </div>
-                     </nav>
-                  </div>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarsExample04">
+                        <ul class="navbar-nav mr-auto">
+                           <li class="nav-item active">
+                              <a class="nav-link" href="#we_do">We Do</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#contact">Contact</a>
+                           </li>
+                        </ul>
+
+                     </div>
+                  </nav>
                </div>
             </div>
          </div>
-         </div>
-      </header>
-      <!-- end header inner -->
-      <!-- end header -->
-      <!-- banner -->
-      <section class="banner_main">
-         <div class="container">
-            <div class="row d_flex">
-               <div class="col-md-4">
-                     <div class="text-bg">
-                     <h1> Improve your Learning Materials
-                        <span class="black" style="font-size: 1em;">with the Power of ML  </span>
-                     </h1>
-                     <a class="button_upload" href="#contact">Upload  Video Material</a>
-                     <a class="button_upload" data-toggle="modal" data-target="#modalLoginForm">Upload Study Material</a>
-                        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                           aria-hidden="true">
-                           <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                 <form id="file-upload-form" class="uploader" method="POST" action="/upload" enctype="multipart/form-data">
-                                    <input id="file-upload" type="file" name="fileUpload" accept="application/pdf,application/vnd.ms-powerpoint" />
-                                  
-                                    <label for="file-upload" id="file-drag">
-                                      
-                                      <div id="start">
-                                        <i class="fa fa-download" aria-hidden="true"></i>
-                                        <div>Select a file or drag here</div>
-                                        <div id="notimage" class="hidden">Please select an image</div>
-                                        <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
-                                      </div>
-                                      <div id="response" class="hidden">
-                                        <div id="messages"></div>
-                                        <span id="cancel_upload">X</span>
-                                        <progress class="progress" id="file-progress" value="0">
-                                          <span>0</span>%
-                                        </progress>
-                                      </div>
-                                    </label>
-                                    <input type="submit" style="margin-bottom: 20px;"/>
-                                  </form>
+      </div>
+      </div>
+   </header>
+   <!-- end header inner -->
+   <!-- end header -->
+   <!-- banner -->
+   <section class="banner_main">
+      <div class="container">
+         <div class="row d_flex">
+            <div class="col-md-4">
+               <div class="text-bg">
+                  <h1> Improve your Learning Materials
+                     <span class="black" style="font-size: 1em;">with the Power of ML </span>
+                  </h1>
+                  <a class="button_upload" href="#contact">Upload Video Material</a>
+                  <a class="button_upload" data-toggle="modal" data-target="#modalLoginForm">Upload Study Material</a>
+                  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <form id="file-upload-form" class="uploader" method="POST" action="/upload"
+                              enctype="multipart/form-data">
+                              <h2 style="margin-bottom: 2vh;">Select Study Material</h2>
+                              <div class="file-upload" style="margin-bottom: 4vh;">
+                                 <div class="file-select">
+                                    <div class="file-select-button" id="fileName">Choose File</div>
+                                    <div class="file-select-name" id="noFile">No file chosen...</div>
+                                    
+                                    <input id="file-upload" type="file" name="fileUpload"
+                                       accept="application/pdf,application/vnd.ms-powerpoint">
+                                 </div>
                               </div>
-                         </div>
+                              <div style="margin: auto;width: 20%;" class="upload_div" id = "upload_div">
+                                 <span><div class="loader_small"></div></span>
+                                <span class="text_upload">Uploading</span>
+                              </div>
+                              <input type="submit" style="margin-bottom: 5px;" id="submit" disabled="true" />
+                           </form>
+                        </div>
                      </div>
                   </div>
                </div>
-               <div class="col-md-8">
-                  <div class="text-img">
-                     <figure><img src="static/images/clean.jpg" alt="#"/></figure>
-                  </div>
-                  <!-- <div class="text-img1">
+            </div>
+            <div class="col-md-8">
+               <div class="text-img">
+                  <figure><img src="static/images/clean.jpg" alt="#" /></figure>
+               </div>
+               <!-- <div class="text-img1">
                      <figure><img src="static/images/clean2.png" alt="#"/></figure>
                   </div> -->
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end banner -->
+   <!-- we_do -->
+   <div id="we_do" class="we_do">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>How it works?</h2>
+                  <span></span>
+                  <strong></strong>
                </div>
             </div>
          </div>
-      </section>
-      <!-- end banner -->
-      <!-- we_do -->
-      <div id="we_do"  class="we_do">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>How it works?</h2>
-                     <span></span>
-                     <strong></strong>
-                  </div>
+         <div class="row">
+            <div class="col-md-4">
+               <div class="we_do_box">
+                  <i><img src="static/images/plan2.png" alt="#" /></i>
+                  <h4>Create your Study Material</h4>
+                  <p>Create your study material in PDF/ Presentation/ Video Format </p>
                </div>
             </div>
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="we_do_box">
-                     <i><img src="static/images/plan2.png" alt="#"/></i>
-                     <h4>Create your Study Material</h4>
-                     <p>Create your study material in PDF/ Presentation/ Video Format </p>
-                  </div> 
+            <div class="col-md-4">
+               <div class="we_do_box">
+                  <i><img src="static/images/plan1.png" alt="#" /></i>
+                  <h4>Upload to Meticulous</h4>
+                  <p>Upload your study material to Meticuluous Cloud </p>
                </div>
-               <div class="col-md-4">
-                  <div class="we_do_box">
-                     <i><img src="static/images/plan1.png" alt="#"/></i>
-                     <h4>Upload to Meticulous</h4>
-                     <p>Upload your study material to Meticuluous Cloud </p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="we_do_box">
-                     <i><img src="static/images/plan3.png" alt="#"/></i>
-                     <h4>Get Recommendations</h4>
-                     <p>Get Smart ML based Recommendations for your material. Edit your documents on the go and download them. </p>
-                  </div>
+            </div>
+            <div class="col-md-4">
+               <div class="we_do_box">
+                  <i><img src="static/images/plan3.png" alt="#" /></i>
+                  <h4>Get Recommendations</h4>
+                  <p>Get Smart ML based Recommendations for your material. Edit your documents on the go and download
+                     them. </p>
                </div>
             </div>
          </div>
       </div>
-      <!-- end we_do -->
-      <!-- testimonial -->
-      <!-- <div class="testimonial">
+   </div>
+   <!-- end we_do -->
+   <!-- testimonial -->
+   <!-- <div class="testimonial">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
@@ -271,9 +280,9 @@
             </div>
          </div>
       </div> -->
-      <!-- end testimonial -->
-      <!-- contact -->
-      <!-- <div id="contact" class="contact">
+   <!-- end testimonial -->
+   <!-- contact -->
+   <!-- <div id="contact" class="contact">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
@@ -314,9 +323,9 @@
             </div>
          </div>
       </div> -->
-      <!-- end contact -->
-      <!-- asked -->
-      <!-- <div class="asked">
+   <!-- end contact -->
+   <!-- asked -->
+   <!-- <div class="asked">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
@@ -344,9 +353,9 @@
             </div>
          </div>
       </div> -->
-      <!-- end asked -->
-      <!--  footer -->
-      <!-- <footer>
+   <!-- end asked -->
+   <!--  footer -->
+   <!-- <footer>
          <div class="footer">
             <div class="container">
                <div class="row">
@@ -372,24 +381,32 @@
             </div>
          </div>
       </footer> -->
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script type="text/javascript"
-         src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-      <script type="text/javascript"
-      src="{{ url_for('static', filename='js/popper.min.js') }}"></script>   
-      <script type="text/javascript"
-         src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-      <script type="text/javascript"
-         src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
-      <script type="text/javascript"
-         src="{{ url_for('static', filename='js/plugin.js') }}"></script>
-      <!-- sidebar -->
-      <script type="text/javascript"
-         src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-      <script type="text/javascript"
-         src="{{ url_for('static', filename='js/custom.js') }}"></script>
-      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-   </body>
-</html>
+   <!-- end footer -->
+   <!-- Javascript files-->
+   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-scripts.js') }}"></script>
+   <!-- sidebar -->
+   <script type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+   <!-- <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> -->
+   <script>
+      $('#file-upload').bind('change', function () {
+         var filename = $("#file-upload").val();
+         if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile").text("No file chosen...");
+         }
+         else {
+            $(".file-upload").addClass('active');
+            $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
+         }
+      });
+   </script>
+</body>
 
+</html>
