@@ -58,6 +58,12 @@
     margin-top: 7px;
     /* color: #454cad; */
          }
+         li {
+            text-align: left;
+         }
+         li h3 {
+            text-align: center;
+         }
       </style>
       <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
    <!--[if lt IE 9]>
@@ -204,8 +210,17 @@
       str += '</li>';
       str += '<li>';
       str+='<h3>Keywords</h3>'
-      str+= "Consider highlighting these keywords on these pages: \n"
-      str+= data.list_keywords
+      str+= "Consider highlighting these keywords on these pages: ";
+      str+="<br>";
+      var i=0;
+      data.list_keywords.forEach(e => {
+         i++;
+         str+="Page "
+         str+=i;
+         str+=") "
+         str+=e;      
+         str+="<br>";
+      });
       str += '</li>';
       str += '<li>';
       str+='<h3>Spellings Errors</h3>'
