@@ -15,6 +15,9 @@ $('#file-upload').bind('change', function () {
    // $("#submit").prop('disabled', true);
    $("#upload_div").removeClass("upload_div");
  });
+
+
+
  $('form').submit(function() {
    $(this).find("#submit").prop('disabled',true);
  });
@@ -27,7 +30,7 @@ $('#file-upload').bind('change', function () {
 		var content = this.hash.replace('/','');
 		tabs.removeClass("active");
 		$(this).addClass("active");
-    $("#content").find('p').hide();
+    $("#content").find('div').hide();
     $(content).fadeIn(200);
 	});
 

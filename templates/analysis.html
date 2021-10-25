@@ -146,12 +146,34 @@
                   </ul>
                   
                   <div id="content">
-                    <p id="one"></p>
-                    <p id="two"></p>
-                    <p id="three">Tabs , consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur modi quod quo iureq</p>
+                    <div id="one"  style="color: white;padding-left: 10px;"></div>
+                    <div id="two"  style="color: white;padding-left: 10px;">
+                     <h1>CTML Principles achieved</h1>
+                     <ul class="skill-list">
+                     <li class="skill">
+                        <h3>Nunchucks</h3>
+                        <progress class="skill-1" max="100" value="50">
+                           <strong>Skill Level: 50%</strong>
+                        </progress>
+                     </li>
+                     <li class="skill">
+                        <h3>Bow Staff</h3>
+                        <progress class="skill-2" max="100" value="75">
+                           <strong>Skill Level: 75%</strong>
+                        </progress>
+                     </li>
+                     <li class="skill">
+                        <h3>Roundhouse Kick</h3>
+                        <progress class="skill-3" max="100" value="25">
+                           <strong>Skill Level: 25%</strong>
+                        </progress>
+                     </li>
+                     </ul>
                   </div>
-                  
-                </div>
+                    <div id="three" style="color: white;padding-left: 10px;">q.t, conseo iureq</div>
+                  </div>
+
+               </div>
             </div>
          </section>
       </div>
@@ -208,6 +230,7 @@
       str+= "More image illustrations required on pages: "
       str+= data.more_images
       str += '</li>';
+
       str += '<li>';
       str+='<h3>Keywords</h3>'
       str+= "Consider highlighting these keywords on these pages: ";
@@ -222,10 +245,27 @@
          str+="<br>";
       });
       str += '</li>';
+
       str += '<li>';
       str+='<h3>Spellings Errors</h3>'
       str+= "Consider fixing these spelling errors: "
       str+= data.spelling
+      str += '</li>';
+
+      str += '<li>';
+      str+='<h3>Image Labellings</h3>'
+      str+= "Some of the images below may be poorly labelled. Consider adding proper labellings <br>"
+      data.less_text_img.forEach(e => {
+         str+="•";
+         str+=e;
+         str+="<br>"
+      })
+      str+="Some of the images listed below maybe overly-packed with text. Consider reducing the amount of text for better picture visibility";
+      data.more_text_img.forEach(e => {
+         str+="•";
+         str+=e;
+         str+="<br>"
+      })
       str += '</li>';
       str += '</ul>';
       document.getElementById("one").innerHTML = str;

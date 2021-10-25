@@ -23,8 +23,11 @@ import os
 from textblob import TextBlob
 from spellchecker import SpellChecker
 import string
+import pytesseract
+import re
 nltk.download('punkt')
 
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe'
 page_json = []
 
 
@@ -166,6 +169,42 @@ def percentage_text_to_image(path_to_pdf):
         if text < 10 and image > 0:
             more_text.append(x)
 
+less_text_img = []
+more_text_img = []
+def image_labellings():
+    path ="./images"
+    # iterating the images inside the folder
+    for imageName in os.listdir(path):
+        inputPath = os.path.join(path, imageName)
+        text = (pytesseract.image_to_string(inputPath))
+        text =  re.sub('[^A-Za-z0-9]+', '', text)
+        img_no = imageName.split('-')[1].split('.')[0]
+        page_no = imageName.split('-')[0].replace("image",'')
+        s = ""
+        if(len(text)>110):
+            if(img_no == '0'):
+                s+="1st image " 
+            if(img_no == '1'):
+                s+="2nd image " 
+            if(img_no == '2'):
+                s+="3rd image "
+            if(len(s)==0): 
+                s+=str((int(img_no)+1))+"th image "
+            s+= "of page number "+ str(int(page_no)+1)
+            more_text_img.append(s)
+        if(len(text) == 0):
+            if(img_no == '0'):
+                s+="1st image " 
+            if(img_no == '1'):
+                s+="2nd image " 
+            if(img_no == '2'):
+                s+="3rd image "
+            if(len(s)==0):  
+                s+=str(int(img_no)+1)+"th image "
+            s+= "of page number "+ str(int(page_no)+1)
+            less_text_img.append(s)
+    
+
 
 def process_page(str):
     keywrds = keywords(str)
@@ -208,6 +247,7 @@ def analyser(path_to_pdf):
 
     percentage_text_to_image(path_to_pdf)
     images_store(path_to_pdf)
+    image_labellings()
     text_converter.close()
     out_text.close()
     return page_json
@@ -222,9 +262,13 @@ def data():
     print(spelling)
     print("keywords")
     print(list_keywords)
-    data = {'more_text': more_text,
+    data = {
+            'more_text': more_text,
             'more_images': more_images,
             'spelling': spelling,
             'list_keywords': list_keywords,
-            'summary': summary}
+            'summary': summary,
+            'more_text_img': more_text_img,
+            'less_text_img':less_text_img
+            }
     return data
