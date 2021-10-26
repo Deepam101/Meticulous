@@ -25,6 +25,7 @@ from spellchecker import SpellChecker
 import string
 import pytesseract
 import re
+nltk.download('punkt')
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe'
 page_json = []
