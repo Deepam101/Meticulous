@@ -9,12 +9,12 @@ import base64
 import io
 from flask import Flask, request, jsonify, render_template
 from flask import send_file
-
+import shutil
 
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"]  = "mongodb://localhost:27017/file_materials"
+app.config["MONGO_URI"]  = "mongodb+srv://deepam:ronaldo@cluster0.14jm2.mongodb.net/file_materials"
 mongodb_client = PyMongo(app)
 db = mongodb_client.db
 fs = gridfs.GridFS(db)
@@ -55,6 +55,7 @@ def analysis(filename):
 @app.route('/analysis/getdata', methods=['GET'])
 def getsdata():
     getdata = data()
+    shutil.rmtree("images") 
     return getdata
 
 def runanalyser(filename):
