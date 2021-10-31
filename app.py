@@ -55,7 +55,10 @@ def analysis(filename):
 @app.route('/analysis/getdata', methods=['GET'])
 def getsdata():
     getdata = data()
-    shutil.rmtree("images") 
+    try:
+        shutil.rmtree("images") 
+    except:
+        s = 1 
     return getdata
 
 def runanalyser(filename):

@@ -89,7 +89,7 @@ def spell_grammar(text):
                     page_spell_list.append(word)
     spelling.append(page_spell_list)
 
-
+number_of_pages = 1
 def images_store(path_to_pdf):
     pdf_file = fitz.open(path_to_pdf)
     if os.path.isdir("images") == False:
@@ -137,13 +137,14 @@ def unionArea(rlist):
 more_images = []
 more_text = []
 
-
+no_pages = 1
 def percentage_text_to_image(path_to_pdf):
     percentage = []
     doc = fitz.open(path_to_pdf)
     parser = PDFParser(path_to_pdf)
     document = PDFDocument(parser)
     no_pages = resolve1(document.catalog['Pages'])['Count']
+    print(no_pages)
     for x in range(no_pages):
         page = doc[x]
         parea = abs(page.rect)
@@ -247,6 +248,7 @@ def analyser(path_to_pdf):
 
     percentage_text_to_image(path_to_pdf)
     images_store(path_to_pdf)
+    print(number_of_pages)
     image_labellings()
     text_converter.close()
     out_text.close()
@@ -254,14 +256,11 @@ def analyser(path_to_pdf):
 
 
 def data():
-    print("More text")
-    print(more_text)
-    print("More images")
-    print(more_images)
-    print("spellings")
-    print(spelling)
-    print("keywords")
-    print(list_keywords)
+    full = 100
+    full -= (len(more_text)/no_pages)*10
+    full -= (len(more_images)/no_pages)*10
+    full -= len(spelling)*.5
+    print(no_pages)
     data = {
             'more_text': more_text,
             'more_images': more_images,
@@ -269,6 +268,7 @@ def data():
             'list_keywords': list_keywords,
             'summary': summary,
             'more_text_img': more_text_img,
-            'less_text_img':less_text_img
+            'less_text_img':less_text_img,
+            'rating': full
             }
     return data

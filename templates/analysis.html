@@ -120,7 +120,7 @@
       </div>
    </header>
    <div style="font-size: 2em;">
-      The Rating for your Material is: <span style="color: brown; font-size: 2em;">{{rating}} %</span>
+      The Rating for your Material is: <span style="color: brown; font-size: 2em;" id="rating"> </span>
    </div>
 
 
@@ -269,7 +269,9 @@
       str += '</li>';
       str += '</ul>';
       document.getElementById("one").innerHTML = str;
+      document.getElementById("rating").innerHTML = data.rating
       });
+      console.log(data)
 </script>
 
 </html>
