@@ -188,7 +188,7 @@
       document.addEventListener("adobe_dc_view_sdk.ready", function () {
          var adobeDCView = new AdobeDC.View({ clientId: "beb043bfb40e4e8c98748cb7b66c6cab", divId: "adobe-dc-view" });
          adobeDCView.previewFile({
-            content: { location: { url: "http://localhost:5000/file/{{pdf}}" } },
+            content: { location: { url: "https://meticulousapp.herokuapp.com/file/{{pdf}}" } },
             metaData: { fileName: "{{pdf}}.pdf" }
          }, {});
       });
