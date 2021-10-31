@@ -14,7 +14,7 @@ import shutil
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"]  = "mongodb+srv://deepam:ronaldo@cluster0.14jm2.mongodb.net/file_materials"
+app.config["MONGO_URI"]  = "mongodb://localhost:27017/file_materials"
 mongodb_client = PyMongo(app)
 db = mongodb_client.db
 fs = gridfs.GridFS(db)
