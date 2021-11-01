@@ -171,11 +171,13 @@ def percentage_text_to_image(path_to_pdf):
             more_text.append(x)
 
 less_text_img = []
+no_of_images = []
 more_text_img = []
 def image_labellings():
     path ="./images"
     # iterating the images inside the folder
     for imageName in os.listdir(path):
+        no_of_images.append(1)
         inputPath = os.path.join(path, imageName)
         text = (pytesseract.image_to_string(inputPath))
         text =  re.sub('[^A-Za-z0-9]+', '', text)
@@ -260,7 +262,9 @@ def data():
     full -= (len(more_text)/no_pages)*10
     full -= (len(more_images)/no_pages)*10
     full -= len(spelling)*.5
-    print(no_pages)
+    contiguity = 100 - (len(less_text_img) * 6)/ len(no_of_images)
+    coherence = 100 - ((len(more_text_img) +len(more_text)) * 3)/ no_pages
+    multimedia = max(100, len(no_of_images)/no_pages)
     data = {
             'more_text': more_text,
             'more_images': more_images,
@@ -269,6 +273,9 @@ def data():
             'summary': summary,
             'more_text_img': more_text_img,
             'less_text_img':less_text_img,
-            'rating': full
+            'rating': full,
+            'contiguity': contiguity,
+            'coherence': coherence,
+            'multimedia': multimedia,
             }
     return data
